@@ -50,74 +50,143 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: Container(
-        color: const Color.fromARGB(255, 67, 155, 255),
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
+      body: SingleChildScrollView(
+        child: Container(
+          color: const Color.fromARGB(255, 67, 155, 255),
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+                ),
+                padding: EdgeInsets.fromLTRB(1, 4, 16, 24),
+              ),
+              CustomSlider(),
+              Container(
                 color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-              ),
-              padding: EdgeInsets.fromLTRB(1, 4, 16, 24),
-            ),
-            CustomSlider(),
-            Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  SizedBox(height: 24),
-                  Text(
-                    "Recommended",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildServiceCard("Phone Repair", "Online Reservation",
-                            "assets/repair.png"),
-                        SizedBox(width: 12),
-                        _buildServiceCard("My Coupons", "Repair with Discount",
-                            "assets/discount.png"),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 12),
-                  Column(
-                    children: [
-                      SizedBox(height: 12),
-                      Text(
-                        "More Services",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                child: Column(
+                  children: [
+                    SizedBox(height: 24),
+                    Text(
+                      "Recommended",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
-                      SizedBox(height: 12),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24),
-                        child: Row(
-                          children: [
-                            Expanded(
-                                child:
-                                    _buildMoreService("Prices", Icons.money)),
-                            SizedBox(width: 12),
-                            Expanded(
-                                child: _buildMoreService(
-                                    "Review Order", Icons.book)),
-                          ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _buildServiceCard("Phone Repair",
+                              "Online Reservation", "assets/repair.png"),
+                          SizedBox(width: 12),
+                          _buildServiceCard("My Coupons",
+                              "Repair with Discount", "assets/discount.png"),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 12),
+                    Column(
+                      children: [
+                        SizedBox(height: 12),
+                        Text(
+                          "More Services",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
                         ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
+                        SizedBox(height: 12),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                  child:
+                                      _buildMoreService("Prices", Icons.money)),
+                              SizedBox(width: 12),
+                              Expanded(
+                                  child: _buildMoreService(
+                                      "Review Order", Icons.book)),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Text(
+                          "Nearby Stores",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(24, 12, 24, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildMoreNearbyStores(
+                                  "assets/service.png",
+                                  "SAN PABLO BRANCH",
+                                  "3rd floor Unindentified Plaza"),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              _buildMoreNearbyStores(
+                                  "assets/service.png",
+                                  "SAN PEDRO BRANCH",
+                                  "3rd floor Unindentified Plaza"),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              _buildMoreNearbyStores(
+                                  "assets/service.png",
+                                  "CALAMBA BRANCH",
+                                  "3rd floor Unindentified Plaza"),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              _buildMoreNearbyStores(
+                                  "assets/service.png",
+                                  "STA CRUZ BRANCH",
+                                  "3rd floor Unindentified Plaza"),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              _buildMoreNearbyStores(
+                                  "assets/service.png",
+                                  "CABUYAO BRANCH",
+                                  "3rd floor Unindentified Plaza"),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              _buildMoreNearbyStores(
+                                  "assets/service.png",
+                                  "PAKIL BRANCH",
+                                  "3rd floor Unindentified Plaza"),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                height: 12,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -128,7 +197,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: const Color.fromARGB(255, 33, 150, 243),
         onTap: _onItemTapped,
       ),
     );
@@ -172,6 +241,46 @@ class _HomeState extends State<Home> {
           ),
           SizedBox(width: 10),
           Text(title, style: TextStyle(fontSize: 14)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMoreNearbyStores(String image, String title, String subTitle) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10), // Adjust radius as needed
+            child: Image.asset(
+              image,
+              height: 75,
+            ),
+          ),
+          SizedBox(width: 10),
+          Column(
+            crossAxisAlignment:
+                CrossAxisAlignment.start, // Align text to the start
+            children: [
+              Text(title,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              Text(subTitle, style: TextStyle(fontSize: 12)),
+            ],
+          ),
+          SizedBox(
+            width: 24,
+          ),
+          CircleAvatar(
+            radius: 20,
+            backgroundColor: Colors.blue,
+            child:
+                Icon(Icons.keyboard_arrow_right_outlined, color: Colors.white),
+          ),
         ],
       ),
     );
