@@ -132,7 +132,8 @@ class _HomeState extends State<Home> {
                               _buildMoreNearbyStores(
                                   "assets/service.png",
                                   "SAN PABLO BRANCH",
-                                  "3rd floor Unindentified Plaza"),
+                                  "3rd floor Unindentified Plaza",
+                                  true),
                               SizedBox(width: 12),
                               SizedBox(
                                 height: 12,
@@ -140,7 +141,8 @@ class _HomeState extends State<Home> {
                               _buildMoreNearbyStores(
                                   "assets/service.png",
                                   "SAN PEDRO BRANCH",
-                                  "3rd floor Unindentified Plaza"),
+                                  "3rd floor Unindentified Plaza",
+                                  false),
                               SizedBox(width: 12),
                               SizedBox(
                                 height: 12,
@@ -148,7 +150,8 @@ class _HomeState extends State<Home> {
                               _buildMoreNearbyStores(
                                   "assets/service.png",
                                   "CALAMBA BRANCH",
-                                  "3rd floor Unindentified Plaza"),
+                                  "3rd floor Unindentified Plaza",
+                                  false),
                               SizedBox(width: 12),
                               SizedBox(
                                 height: 12,
@@ -156,7 +159,8 @@ class _HomeState extends State<Home> {
                               _buildMoreNearbyStores(
                                   "assets/service.png",
                                   "STA CRUZ BRANCH",
-                                  "3rd floor Unindentified Plaza"),
+                                  "3rd floor Unindentified Plaza",
+                                  true),
                               SizedBox(width: 12),
                               SizedBox(
                                 height: 12,
@@ -164,7 +168,8 @@ class _HomeState extends State<Home> {
                               _buildMoreNearbyStores(
                                   "assets/service.png",
                                   "CABUYAO BRANCH",
-                                  "3rd floor Unindentified Plaza"),
+                                  "3rd floor Unindentified Plaza",
+                                  true),
                               SizedBox(width: 12),
                               SizedBox(
                                 height: 12,
@@ -172,7 +177,8 @@ class _HomeState extends State<Home> {
                               _buildMoreNearbyStores(
                                   "assets/service.png",
                                   "PAKIL BRANCH",
-                                  "3rd floor Unindentified Plaza"),
+                                  "3rd floor Unindentified Plaza",
+                                  false),
                               SizedBox(width: 12),
                               SizedBox(
                                 height: 12,
@@ -246,7 +252,8 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildMoreNearbyStores(String image, String title, String subTitle) {
+  Widget _buildMoreNearbyStores(
+      String image, String title, String subTitle, bool isOpen) {
     return Container(
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -264,17 +271,34 @@ class _HomeState extends State<Home> {
           ),
           SizedBox(width: 10),
           Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Align text to the start
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
               Text(subTitle, style: TextStyle(fontSize: 12)),
+              SizedBox(height: 4),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: isOpen ? Colors.green : Colors.red,
+                ),
+                width: 60,
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 2, 0, 2),
+                    child: Text(
+                      isOpen ? "OPEN" : "CLOSED",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
-          SizedBox(
-            width: 24,
-          ),
+          Spacer(), // Adjusts spacing dynamically
           CircleAvatar(
             radius: 20,
             backgroundColor: Colors.blue,
