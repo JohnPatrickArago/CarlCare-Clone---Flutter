@@ -82,23 +82,58 @@ class AccountScreen extends StatelessWidget {
               Container(
                 color: Colors.white,
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
-                  margin: EdgeInsets.fromLTRB(24, 0, 24, 0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.grey[200],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildFirstContainer(Icons.folder, 'Submitted'),
-                      _buildFirstContainer(Icons.folder, 'Process'),
-                      _buildFirstContainer(Icons.folder, "Rapairing"),
-                      _buildFirstContainer(Icons.folder, "Repaired"),
-                      _buildFirstContainer(Icons.folder, "Review"),
-                    ],
-                  ),
-                ),
+                    padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    margin: EdgeInsets.fromLTRB(24, 0, 24, 0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.grey[200],
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                            padding: EdgeInsets.fromLTRB(24, 0, 24, 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'My Order',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'All',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        width: 4,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 16,
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            _buildFirstContainer(
+                                Icons.flip_camera_android_rounded, 'Process'),
+                            _buildFirstContainer(
+                                Icons.access_time_sharp, "Repairing"),
+                            _buildFirstContainer(
+                                Icons.check_circle_outline_outlined,
+                                "Repaired"),
+                            _buildFirstContainer(Icons.chat_outlined, "Review"),
+                          ],
+                        ),
+                      ],
+                    )),
               )
             ],
           ),
